@@ -31,8 +31,9 @@ export default function CardCourse( {id, description, thumbnail, title}: Course)
                 </CardDescription>
             </CardHeader>
             <CardFooter>
-                <Button className="w-full cursor-pointer" asChild>
-                    <Link href={`/api/courses/${id}/lessons`}>Inscreve-se</Link></Button>
+                <Button className="w-full cursor-pointer">
+                    <Link className="w-full" href={`/courses/${id}`}>Inscreve-se</Link>
+                </Button>
             </CardFooter>
         </Card>
     )

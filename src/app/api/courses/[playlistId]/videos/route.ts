@@ -26,10 +26,10 @@ export async function GET(
       );
     }
 
-    const lessons = await getPlayListItems(playlistId);
+    const videos = await getPlayListItems(playlistId);
 
     return NextResponse.json({
-      data: lessons,
+      data: videos,
     });
   } catch (error) {
     console.error("Erro ao buscar aulas:", error);
