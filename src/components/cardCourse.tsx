@@ -8,14 +8,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { Course } from "@/data/@types/course"
 import Link from "next/link"
 
-export default function CardCourse(){
+
+export default function CardCourse( {id, description, thumbnail, title}: Course){
     return (
         <Card className="relative mx-auto w-full max-w-sm pt-0">
             <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
             <img
-                src="https://images.pexels.com/photos/1102797/pexels-photo-1102797.png"
+                src={thumbnail}
                 alt="Event cover"
                 className="relative z-20 aspect-video w-full object-cover brightness-60  dark:brightness-60"
             />
@@ -23,14 +25,14 @@ export default function CardCourse(){
                 <CardAction>
                 <Badge variant="destructive">Tecnologia</Badge>
                 </CardAction>
-                <CardTitle>Curso de HTML E CSS</CardTitle>
+                <CardTitle>{title}</CardTitle>
                 <CardDescription>
-                Do fundamento a criação da primeira Laodpage
+                    {description}
                 </CardDescription>
             </CardHeader>
             <CardFooter>
-                <Button className="w-full" asChild>
-                    <Link href='/course'>Inscreve-se</Link></Button>
+                <Button className="w-full cursor-pointer" asChild>
+                    <Link href={`/api/courses/${id}/lessons`}>Inscreve-se</Link></Button>
             </CardFooter>
         </Card>
     )
