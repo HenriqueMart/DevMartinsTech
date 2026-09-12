@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import Perfil from "../perfil"
+import Perfil from "../profile"
 import Link from "next/link"
 
 export default function NavBar(){
@@ -18,7 +18,7 @@ export default function NavBar(){
         <header className="flex justify-center items-center h-[50px] border-b border-foreground/5">
             <div className="flex w-full max-w-[1440px] px-4 justify-between items-center">
                 <Link href='/'>
-                    <p className="text-muted-foreground text-[12px] sm:text-lg ">DevMartins Tech Course</p>
+                    <p className="text-muted-foreground text-[12px] sm:text-lg font-extrabold uppercase ">Tech Course</p>
                 </Link>
                 <Perfil />
             </div>

@@ -18,7 +18,7 @@ export default function Perfil(){
         <DropdownMenu>
             <DropdownMenuTrigger render={
                 <Button variant="ghost" size="icon" className="rounded-full">
-                    <Avatar>
+                    <Avatar className="size-8">
                     <AvatarImage src="https://images.pexels.com/photos/3275037/pexels-photo-3275037.jpeg" alt="shadcn" />
                     <AvatarFallback>LR</AvatarFallback>
                     </Avatar>
