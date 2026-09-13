@@ -20,7 +20,6 @@ import { Spinner } from "@/components/ui/spinner"
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -33,9 +32,8 @@ import {useCourses} from "@/data/hooks/useCourses"
 //Propriedade do Next e React
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { FileSearchIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
-import { SealCheckIcon } from "@phosphor-icons/react/dist/ssr";
+import React, {useState } from "react";
+import { MagnifyingGlassIcon } from "@phosphor-icons/react";
 
 export default function Home (){
 
@@ -96,7 +94,7 @@ export default function Home (){
     <div className="w-full min-h-[calc(100vh-4rem)] flex justify-center items-center">
       <Button disabled size="sm" variant="ghost">
         <Spinner data-icon="inline-start" />
-          Carregando cursos
+          Carregando cursos...
       </Button>
     </div>
     )
@@ -119,15 +117,15 @@ export default function Home (){
   }
 
   return (
-    <main className=" w-full flex flex-col justify-center items-center gap-5 sm:py-[25px]">
-      <div className="max-w-[1440px] flex flex-col gap-6">
-        <div >
+    <main className=" w-full flex flex-col justify-center items-center gap-5 py-[25px]">
+      <div className="max-w-[1440px] px-6 lg:px-10 xl:px-0 flex flex-col justify-center items-center gap-6">
+        <div className="flex flex-col justify-center items-center">
           <Carousel 
             //Dados do Slides
             setApi={setApiCorousel} 
             //AutoPlay
             plugins={[autoPlayPlugin]} 
-            className="max-w-[1200px] p-0">
+            className="w-[240px] sm:w-[75%] xl:w-full max-w-[1200px] p-0">
             <CarouselContent>
               {courses.map((course, index) => (
                 <CarouselItem key={index}>
@@ -161,7 +159,7 @@ export default function Home (){
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-          <div className="py-2 text-center text-sm text-muted-foreground">
+          <div className="py-2 text-center text-[12px] sm:text-sm text-muted-foreground">
             Destaque {current} de {courses.length}
           </div>
         </div>
@@ -171,18 +169,14 @@ export default function Home (){
           <Search onSearch={handleSearch}/>
         </div>
         <div className="w-full flex flex-col gap-3">
-          <h2 className="text-2xl font-bold">Todos os cursos</h2>
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold">Todos os cursos</h2>
           <span className="w-full h-[1px] border " />
         </div>  
         {displayedCourse.length > 0 ? (
           <div className="flex flex-col gap-6">
-            <section className="grid grid-cols-3 gap-6 justify-center items-center">
+            <section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center">
               {displayedCourse.map((course) => (
-                
-                  
-                  <CardCourse key={course.id} {...course}/>
-                  
-                
+                  <CardCourse key={course.id} {...course}/> 
             ))}
             </section>
             {totalPages >= 1 && (

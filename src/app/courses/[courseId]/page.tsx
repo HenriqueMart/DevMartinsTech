@@ -1,22 +1,27 @@
 "use client"
 
+//Componentes
 import CourseAside from "@/components/courseAside";
+import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 import { YoutubePlayer } from "@/components/YoutubePlayer";
+//Tipos
 import { Video } from "@/data/@types/video";
+//Hooks
 import { useVideo } from "@/data/hooks/useVideos";
-
-import { useParams } from "next/navigation";
 import { useState } from "react";
 
+//Url do Next
+import { useParams } from "next/navigation";
 
 
 export default function Course (){
+    //Pegando o Parâmetro enviado na url
     const params = useParams();
-
     const courseId = params.courseId as string;
 
     const [videoSelected, setVideoSelected] = useState<Video | null> (null);
-
+    //Hook personalizado dos vídeos da API
     const {
         video,
         isLoading,
@@ -25,17 +30,43 @@ export default function Course (){
 
     const currentVideo = videoSelected ?? video[0];
 
-    if(isLoading){
-        return <p>Carregando Vídeo...</p>
+    const currentIndex = video.findIndex(
+    (item) => item.id === currentVideo?.id
+    );
+
+    //Lógica para Próxima Aula
+    const handleNextVideo = () => {
+        if(currentIndex !== -1 && currentIndex < video.length - 1){
+            const nextVideo = video[currentIndex + 1];
+            if(nextVideo){
+                setVideoSelected(nextVideo);
+            }
+        }
+        
     }
 
+    if(isLoading){
+    return (
+    <div className="w-full min-h-[calc(100vh-4rem)] flex justify-center items-center">
+      <Button disabled size="sm" variant="ghost">
+        <Spinner data-icon="inline-start" />
+          Carregando Aula...
+      </Button>
+    </div>
+    )
+  }
+
     if(error){
-        return <p>Erro ao Carregar Cursos {error}</p>
+        return (
+        <div className="w-full min-h-[calc(100vh-4rem)] flex justify-center items-center">
+            <p className="text-center">Algo inesperado aconteceu: Erro: {error}</p>
+        </div>
+        )
     }
 
     return (
-        <div className="min-h-[calc(100vh-4rem)] w-full flex">
-            <aside  className="flex flex-col  items-center py-5 gap-2 w-[300px] border-r">
+        <div className="w-full flex flex-col-reverse sm:flex-row px-5 lg:px-0 sm:min-h-[calc(100vh-4rem)] ">
+            <aside  className="flex flex-col items-center py-5 gap-2 sm:w-75 border-r">
                 <h3 className="text-center font-bold text-muted-foreground">
                     Todas as Aulas
                 </h3>
@@ -63,23 +94,41 @@ export default function Course (){
                     );
                 })}
             </aside>
-            <main className="flex flex-col py-5 items-center w-full gap-6">
-                <div className="w-[1000px]">
+            <main className="w-full flex flex-col py-5 items-center gap-6">
+                <div className="w-full sm:w-[90%] lg:w-175 xl:w-250">
                      <YoutubePlayer
                         videoId={currentVideo.videoId}
-                        Title={currentVideo.title}
+                        title={currentVideo.title}
                      />
                 </div>
-                <div className="flex flex-col gap-5 px-10">
+                <div className="flex flex-col gap-5 sm:px-10">
                     <div className="flex flex-col gap-2">
-                        <h1 className="font-bold text-2xl">
-                            {currentVideo.position}.{" "}
-                            {currentVideo.title}
-                        </h1>
-                        <span className="w-full h-[1px]  bg-foreground/15"/>
+                        <div className="flex justify-between ">
+                            <h1 className="font-bold text-lg sm:text-2xl">
+                                {currentVideo.position}.{" "}
+                                {currentVideo.title}
+                            </h1>
+                            {currentIndex < (video.length - 1) ? (
+                                <Button 
+                                className="cursor-pointer"
+                                onClick={(e) => (
+                                    e.preventDefault(),
+                                    handleNextVideo()
+                                )}
+                                >
+                                Próxima Aula
+                            </Button>
+                            ): (
+                                <p className="font-bold text-sm sm:text-lg">Curso finalizado!</p>
+                            )}
+                            
+                        </div>
+                        
+                        
+                        <span className="w-full h-px  bg-foreground/15"/>
                     </div>
                     
-                    <p className="font-light text-sm">{currentVideo.description !== "" ?
+                    <p className="font-light text-[12px] sm:text-sm">{currentVideo.description !== "" ?
                      currentVideo.description : 
                      "Esta aula não possui uma descrição cadastrada no YouTube. Assista ao vídeo completo no player acima para acompanhar o conteúdo, as explicações e todos os detalhes abordados nesta etapa do curso."
                      }

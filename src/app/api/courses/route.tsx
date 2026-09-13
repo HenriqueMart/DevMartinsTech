@@ -1,7 +1,8 @@
+//Route tem como objetivo realizar uma requisição sem expor a chave de API. Criando um mini servidor na aplicação com React Handler
+
 import { NextResponse } from "next/server";
 
 import { getPlaylist } from "@/data/services/youtubeService";
-
 
 export async function GET(){
   try{

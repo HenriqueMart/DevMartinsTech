@@ -23,10 +23,10 @@ export default function CardCourse( {id, description, thumbnail, title}: Course)
             />
             <CardHeader>
                 <CardAction>
-                <Badge variant="default">Gestão</Badge>
+                <Badge variant="default" className="text-[10px] sm:text-sm">Gestão</Badge>
                 </CardAction>
-                <CardTitle>{title}</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-sm sm:text-lg">{title}</CardTitle>
+                <CardDescription className="text-[10px] sm:text-sm">
                     {description ? (
                         description
                     ): (
