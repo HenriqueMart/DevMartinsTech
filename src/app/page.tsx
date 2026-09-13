@@ -196,7 +196,7 @@ export default function Home (){
                       const pageNumber = index + 1;
                       return (
                         <PaginationItem key={pageNumber}>
-                          <PaginationLink isActive={currentPage === pageNumber} onClick={(e) => {
+                          <PaginationLink  isActive={currentPage === pageNumber} onClick={(e) => {
                             e.preventDefault();
                             setCurrentPage(pageNumber)
                           }}>
