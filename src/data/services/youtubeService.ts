@@ -5,8 +5,7 @@ import { YouTubePlaylistsResponse } from '../@types/youtube';
 import {
   YouTubePlaylistItemsResponse,
 } from "@/data/@types/youtube";
-
-import { Lesson } from "@/data/@types/Lesson";
+import { Video } from '../@types/video';
 
 
 const youtubeApi = axios.create({
@@ -28,7 +27,7 @@ export async function getPlaylist(): Promise<Course[]> {
     }
   );
 
-  return response.data.items.map((playlist) => ({
+  const playlist = response.data.items.map((playlist) => ({
     id: playlist.id,
     title: playlist.snippet.title,
     description: playlist.snippet.description,
@@ -39,13 +38,17 @@ export async function getPlaylist(): Promise<Course[]> {
       "",
     totalLessons: playlist.contentDetails.itemCount,
   }));
+
+  return playlist.reverse();
   
 }
 
 export async function getPlayListItems(
   playlistId: string
-): Promise<Lesson[]> {
+): Promise<Video[]> {
   const apiKey = process.env.YOUTUBE_API_KEY;
+
+  
 
   const response = await youtubeApi.get<YouTubePlaylistItemsResponse>(
   "playlistItems",
@@ -58,7 +61,11 @@ export async function getPlayListItems(
       },
   }
   )
-  return response.data.items.map((item) => ({
+
+  const allVideos = response.data.items.length;
+
+
+  const video = response.data.items.map((item) => ({
     id: item.id,
     title: item.snippet.title,
     description: item.snippet.description,
@@ -68,8 +75,12 @@ export async function getPlayListItems(
       item.snippet.thumbnails.medium?.url ??
       item.snippet.thumbnails.default?.url ??
       "",
-    position: item.snippet.position,
+    position: allVideos - item.snippet.position,
   }))
+
+    return video.reverse();
+
+    
 }
 
 

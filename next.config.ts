@@ -5,13 +5,14 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
 
+  //Configuração para Next.js Aceitar busca externa para imagens nesse provedor
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.pexels.com',
+        hostname: 'i.ytimg.com',
         port: '',
-        pathname: '/**',
+        pathname: '/vi/**',
       },
     ],
   },

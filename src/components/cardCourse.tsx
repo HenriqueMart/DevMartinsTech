@@ -23,16 +23,22 @@ export default function CardCourse( {id, description, thumbnail, title}: Course)
             />
             <CardHeader>
                 <CardAction>
-                <Badge variant="destructive">Tecnologia</Badge>
+                <Badge variant="default" className="text-[10px] sm:text-sm">Gestão</Badge>
                 </CardAction>
-                <CardTitle>{title}</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-sm sm:text-lg">{title}</CardTitle>
+                <CardDescription className="text-[10px] sm:text-sm">
+                    {description ? (
+                        description
+                    ): (
+                        "Sem descrição"
+                    )}
                     {description}
                 </CardDescription>
             </CardHeader>
             <CardFooter>
-                <Button className="w-full cursor-pointer" asChild>
-                    <Link href={`/api/courses/${id}/lessons`}>Inscreve-se</Link></Button>
+                <Button className="w-full cursor-pointer">
+                    <Link className="w-full" href={`/courses/${id}`}>Assistir</Link>
+                </Button>
             </CardFooter>
         </Card>
     )

@@ -15,13 +15,16 @@ import Link from "next/link"
 
 export default function NavBar(){
     return (
-        <header className="flex justify-center items-center h-[50px] border-b border-foreground/5">
-            <div className="flex w-full max-w-[1440px] px-4 justify-between items-center">
-                <Link href='/'>
-                    <p className="text-muted-foreground text-[12px] sm:text-lg font-extrabold uppercase ">Tech Course</p>
-                </Link>
-                <Perfil />
-            </div>
+        <header className="flex w-full justify-center items-center h-[50px] border-b border-foreground/5">
+
+        <div className="w-full max-w-[1440px] sm:mx-[100px] flex  px-4 justify-between items-center">
+            <Link href='/'>
+                <p className="text-muted-foreground text-[12px] sm:text-lg font-extrabold uppercase ">Tech Course</p>
+            </Link>
+            <Perfil />
+        </div>
+
+            
             
         </header>
     )
