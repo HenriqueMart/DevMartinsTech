@@ -23,7 +23,7 @@ import { Button } from "./button";
 
 export default function NavBar(){
     const router = useRouter();
-    const {user, loading} = useAuth();
+    const {user} = useAuth();
 
     const handleUserSignOut = async () => {
         
