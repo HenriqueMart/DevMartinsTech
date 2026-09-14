@@ -1,6 +1,10 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+"use client"
 
+//react
+import { useEffect, useState } from "react";
+//axios
+import axios from "axios";
+//types
 import { Course } from "@/data/@types/course";
 
 interface CoursesResponse {
@@ -18,6 +22,7 @@ export function useCourses() {
         setIsLoading(true);
         setError(null);
 
+        //Realiza uma busca de curso
         const response = await axios.get<CoursesResponse>(
           "/api/courses"
         );

@@ -14,7 +14,6 @@ import { useState } from "react";
 //Url do Next
 import { useParams } from "next/navigation";
 
-
 export default function Course (){
     //Pegando o Parâmetro enviado na url
     const params = useParams();
@@ -28,10 +27,11 @@ export default function Course (){
         error
     } = useVideo(courseId);
 
+    //Verifica se tem vídeo selecionado caso contrário pega o primeiro
     const currentVideo = videoSelected ?? video[0];
-
+    //Pegando o index
     const currentIndex = video.findIndex(
-    (item) => item.id === currentVideo?.id
+        (item) => item.id === currentVideo?.id
     );
 
     //Lógica para Próxima Aula
@@ -123,20 +123,15 @@ export default function Course (){
                             )}
                             
                         </div>
-                        
-                        
                         <span className="w-full h-px  bg-foreground/15"/>
                     </div>
-                    
-                    <p className="font-light text-[12px] sm:text-sm">{currentVideo.description !== "" ?
-                     currentVideo.description : 
-                     "Esta aula não possui uma descrição cadastrada no YouTube. Assista ao vídeo completo no player acima para acompanhar o conteúdo, as explicações e todos os detalhes abordados nesta etapa do curso."
-                     }
-                     </p>
+                        <p className="font-light text-[12px] sm:text-sm">{currentVideo.description !== "" ?
+                        currentVideo.description : 
+                        "Esta aula não possui uma descrição cadastrada no YouTube. Assista ao vídeo completo no player acima para acompanhar o conteúdo, as explicações e todos os detalhes abordados nesta etapa do curso."
+                        }
+                        </p>
                 </div>
-               
             </main>
-            
         </div>
     )
 }
