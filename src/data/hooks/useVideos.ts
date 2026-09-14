@@ -1,13 +1,14 @@
 "use client"
 
+//React
 import { useEffect, useState } from "react";
+//axios
 import axios from "axios";
+//types
 import { Video } from "../@types/video";
 
-
-
 interface VideoResponse {
-  data: Video
+  data: Video[]
 }
 
 export function useVideo(playlistId: string){
@@ -21,6 +22,7 @@ export function useVideo(playlistId: string){
         setIsLoading(true);
         setError(null);
 
+        //Busca pela vídeo da playlist
         const response = await axios.get<VideoResponse>(
           `/api/courses/${playlistId}/videos`
         );

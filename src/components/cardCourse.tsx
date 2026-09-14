@@ -1,3 +1,7 @@
+//Next
+import Link from "next/link"
+
+//Componentes
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
@@ -9,8 +13,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Course } from "@/data/@types/course"
-import Link from "next/link"
-
 
 export default function CardCourse( {id, description, thumbnail, title}: Course){
     return (

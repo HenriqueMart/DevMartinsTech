@@ -1,16 +1,19 @@
+//react
+import { useState } from "react";
+
+//componentes
 import { Button } from "@/components/ui/button"
 import { Field } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+
+//icone
 import { MagnifyingGlassIcon } from "@phosphor-icons/react";
-import { useState } from "react";
 
 interface SearchInputProps{
     onSearch: (value: string) => void;
 }
 
 export function Search({onSearch}:SearchInputProps){
-
-    //Captura do pesquisa
     const [value, setValue] = useState("");
 
     function handleSubmit(){

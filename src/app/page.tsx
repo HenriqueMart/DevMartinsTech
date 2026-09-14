@@ -1,5 +1,10 @@
 'use client';
 
+//Propriedade do Next e React
+import Image from "next/image";
+import Link from "next/link";
+import React, {useState } from "react";
+
 //Componentes
 import CardCourse from "@/components/cardCourse";
 import { Search } from "@/components/search";
@@ -29,14 +34,10 @@ import {
 //hook personalizado
 import {useCourses} from "@/data/hooks/useCourses"
 
-//Propriedade do Next e React
-import Image from "next/image";
-import Link from "next/link";
-import React, {useState } from "react";
+//icone
 import { MagnifyingGlassIcon } from "@phosphor-icons/react";
 
 export default function Home (){
-
   //Variável do Slides
   const [apiCarousel, setApiCorousel] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
