@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📘 Coffe Delivery
 
-## Getting Started
+> Esse projeto tem como objetivo desenvolver uma plataforma de curso consumindo api do youtube e autenicação dos alunos. Projeto de Desafio técnico. Essa plataforma permite realizar login e cadastramento de aluno, visualização dos cursos disponível de um canal no youtube gerenciando playlist e  vídeos e controle de rotas de acesso para ninguem com login inválido acesse a página.
+---
 
-First, run the development server:
+# 🔗 Deploy
+
+➡️ Clique aqui para acessar o código da aplicação [codigo](https://github.com/HenriqueMart/DevMartinsTech)
+
+Ou:
+
+🟢 Acesse o projeto no AR [Site](https://dev-martins-tech.vercel.app/) 
+
+## 🚀 Tecnologias Utilizadas
+
+- [React](https://reactjs.org/)
+- [Next.js](http://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [TailwindCss](https://tailwindcss.com/) 
+
+---
+
+## ▶️ Vídeo executando o sistema
+
+[![Assista ao vídeo](https://img.youtube.com/vi/A_CY0k-KfPg/maxresdefault.jpg)](https://www.youtube.com/watch?v=A_CY0k-KfPg)
+
+## 📸 Demonstração
+
+### Tela de Login  
+
+![Login](/public/sign-in.png)![Cadastro](/public/sign-up.png)
+
+### Tela de Home 
+
+![Home](/public/home.png) 
+
+### Tela de visualização do curso
+
+![course](/public/course.png) 
+
+---
+
+
+
+## 📂 Estrutura de Pastas
 
 ```bash
+public/
+src/
+├── app/
+├── components/
+├── config/
+├── context/
+├── data/
+├── features/
+├── lib/
+├── tests/
+```
+## ⚙️ Funcionalidades
+
+- ✅ Autenticação de cadastramento de usuário
+
+- ✅ Proteção de rotas
+
+- ✅ Envio de confirmação de e-mail
+
+- ✅ listagem de playlist de cursos
+
+- ✅ Visualização de vídeo específico do curso
+
+- ✅ Feedback do usuário
+
+- ✅ Responsividade 
+
+# 🧠 Arquitetura
+
+- Uso de Hooks do React e Personalizado para gerenciamento de status e chamadas
+
+- utilização da Biblioteca Axios para configuração e controle da chamada da API
+
+- Eslint para controle de padronização do código
+
+- Shadcn para utiização de biblioteca de componentes
+
+- Context API -> Para gerenciamento de status global
+
+- firebase para gerenciamento de autenticação
+
+- Proteção de rotas para gerenciamento de status de autenticação do usuário
+
+- Biblioteca de Zod (react-hook-Zod)
+
+- troast para pop-up de feedback do usuário
+
+- Google API e youtube utilização dos dados da API e gerenciamento
+
+- phosphor-icons biblioteca de ícones
+
+
+
+
+# 🛠️ Como Rodar Localmente
+
+```bash
+
+# Clone o repositório
+git clone https://github.com/HenriqueMart/DevMartinsTech
+
+# Acesse a pasta
+cd DevMartinsTech
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# 🤝 Contribuições
+Sinta-se à vontade para abrir issues e enviar pull requests.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# 📄 Licença
+Este projeto está sob a licença MIT.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# 👨‍💻 Autor
+Feito por Desenvolvedor Henrique Martins
