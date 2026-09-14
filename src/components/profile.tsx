@@ -31,7 +31,7 @@ export default function Perfil({ handleUserSignOut}: PerfilProps) {
             <DropdownMenuTrigger>
                 <Button variant="ghost" size="icon" className="rounded-full cursor-pointer">
                     <Avatar className="size-8">
-                        <AvatarImage src="https://images.pexels.com/photos/3275037/pexels-photo-3275037.jpeg" alt="shadcn" />
+                        <AvatarImage className="p-1" src="https://images.icon-icons.com/3446/PNG/512/profile_user_avatar_people_icon_219228.png" alt="shadcn" />
                         <AvatarFallback>LR</AvatarFallback>
                     </Avatar>
                 </Button>
