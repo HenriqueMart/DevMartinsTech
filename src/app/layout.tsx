@@ -1,10 +1,11 @@
 //importação da estilização global
 import "./globals.css";
+
 import { JetBrains_Mono, Inter } from "next/font/google";
+
 import { cn } from "@/lib/utils";
+
 import NavBar from "@/components/ui/navBar";
-
-
 import { ToastContainer } from "react-toastify";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});

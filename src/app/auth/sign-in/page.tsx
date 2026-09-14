@@ -31,6 +31,8 @@ export default function SignIn(){
                 throw new Error("Usuário não informado ou falha na autenticação");
             }
 
+            toast.success("Login realizado com sucesso!")
+
             router.push("/");
 
         }catch(error){
