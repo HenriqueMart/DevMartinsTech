@@ -38,7 +38,7 @@ export default function SignUp(){
 
         toast.success("Cadastramento realizado com sucesso!");
         await sendEmailVerification();
-        router.push("/auth/sign-in");
+        router.push("/");
     };
 
     return (
